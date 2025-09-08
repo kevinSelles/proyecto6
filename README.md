@@ -7,7 +7,7 @@ Permite manejar figuras de Dragon Ball y tiendas donde se venden.
 el fichero .env no ha sido incluido en el gitIgnore para permitir la corrección por parte
 de los profesores.
 
-# Endpoints de Figuras
+## Endpoints de Figuras
 
 - GET /api/figuras → Trae todas las figuras
 - GET /api/figuras/:id → Trae figura por ID
@@ -16,7 +16,7 @@ de los profesores.
 - PUT /api/figuras/:id → Actualiza figura por ID
 - DELETE /api/figuras/:id → Borra figura por ID
 
-# Endpoints de Tiendas
+## Endpoints de Tiendas
 
 - GET /api/tiendas → Trae todas las tiendas
 - GET /api/tiendas/:id → Trae tienda por ID
