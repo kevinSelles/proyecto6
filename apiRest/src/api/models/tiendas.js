@@ -6,7 +6,9 @@ const tiendaSchema = new mongoose.Schema({
   figuras: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Figura' }],
   abierta: { type: Boolean, default: true }
 }, 
-{ timestamps: true });
+{ timestamps: true,
+  collection: "tiendas"
+ });
 
 const Tienda = mongoose.model('Tienda', tiendaSchema);
 

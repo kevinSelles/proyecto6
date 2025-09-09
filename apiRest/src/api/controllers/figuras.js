@@ -1,6 +1,6 @@
 const Figura = require('../models/figuras');
 
-const getAllFiguras = async (req, res) => {
+const getAllFiguras = async (req, res, next) => {
   try {
     const figuras = await Figura.find();
     res.status(200).json(figuras);
@@ -9,7 +9,7 @@ const getAllFiguras = async (req, res) => {
   }
 };
 
-const getFiguraById = async (req, res) => {
+const getFiguraById = async (req, res, next) => {
   try {
     const { id } = req.params;
     const figura = await Figura.findById(id);
@@ -22,7 +22,7 @@ const getFiguraById = async (req, res) => {
   }
 };
 
-const getFigurasByPrecio = async (req, res) => {
+const getFigurasByPrecio = async (req, res, next) => {
   try {
     const { maxPrecio } = req.params;
     const figuras = await Figura.find({ precio: { $lt: Number(maxPrecio) } });
@@ -34,13 +34,13 @@ const getFigurasByPrecio = async (req, res) => {
 
 const postFigura = async (req, res, next) => {
   try {
-    const { nombre, imagen, descripcion, precio, tamaño, tipo, disponible} = req.body;
+    const { nombre, imagen, descripcion, precio, tamaño, tipo } = req.body;
 
   if (!nombre || !descripcion || !imagen) {
     return res.status(400).json({ message: 'Los campos "nombre", "descripción" e "imagen" son obligatorios' });
   };
 
-  const figura = new Figura({ nombre, imagen, descripcion, precio, tamaño, tipo, disponible });
+  const figura = new Figura({ nombre, imagen, descripcion, precio, tamaño, tipo });
   const newFigura = await figura.save();
   res.status(201).json(newFigura);
 
@@ -49,7 +49,7 @@ const postFigura = async (req, res, next) => {
 };
 };
 
-const putFiguras = async (req, res) => {
+const putFiguras = async (req, res, next) => {
   try {
     const { id } = req.params;
     const putParams = req.body;
@@ -66,7 +66,7 @@ const putFiguras = async (req, res) => {
   }
 };
 
-const deleteFiguras = async (req, res) => {
+const deleteFiguras = async (req, res, next) => {
   try {
     const { id } = req.params;
 

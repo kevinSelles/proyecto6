@@ -7,10 +7,10 @@ const figuraSchema = new mongoose.Schema({
   precio: { type: Number },
   tamaño: { type: String },
   tipo: { type: String },
-  disponible: { type: Boolean, default: true },
 },
-
-  { timestamps: true });
+  { timestamps: true,
+    collection: "figuras"
+   });
 
 const Figura = mongoose.model('Figura', figuraSchema);
 

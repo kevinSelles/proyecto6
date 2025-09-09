@@ -1,6 +1,6 @@
 const Tienda = require('../models/tiendas');
 
-const getTiendas = async (req, res) => {
+const getTiendas = async (req, res, next) => {
   try {
     const tiendas = await Tienda.find().populate('figuras');
     res.status(200).json(tiendas);
@@ -9,7 +9,7 @@ const getTiendas = async (req, res) => {
   }
 };
 
-const getTiendaById = async (req, res) => {
+const getTiendaById = async (req, res, next) => {
   try {
     const { id } = req.params;
     const tienda = await Tienda.findById(id).populate('figuras');
@@ -20,7 +20,7 @@ const getTiendaById = async (req, res) => {
   }
 };
 
-const postTienda = async (req, res) => {
+const postTienda = async (req, res, next) => {
   try {
     const { nombre, direccion, abierta } = req.body;
     if (!nombre) return res.status(400).json({ message: 'El nombre es obligatorio' });
@@ -33,7 +33,7 @@ const postTienda = async (req, res) => {
   }
 };
 
-const putTienda = async (req, res) => {
+const putTienda = async (req, res, next) => {
   try {
     const { id } = req.params;
     const updateData = req.body;
@@ -47,7 +47,7 @@ const putTienda = async (req, res) => {
   }
 };
 
-const deleteTienda = async (req, res) => {
+const deleteTienda = async (req, res, next) => {
   try {
     const { id } = req.params;
 

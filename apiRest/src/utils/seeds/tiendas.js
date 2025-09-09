@@ -20,7 +20,7 @@ const seedTiendas = async () => {
         nombre: 'Akira Comics',
         direccion: 'Avenida de Betanzos 74, Madrid',
         figuras: [],
-        disponible: true
+        abierta: true
       }
     ];
 
