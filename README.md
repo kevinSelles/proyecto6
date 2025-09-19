@@ -22,4 +22,3 @@ Este proyecto es un backend con JavaScript, usando librerías como Express, Mong
 | POST   | /api/tiendas | Crea nueva tienda |
 | PUT    | /api/tiendas/:id | Actualiza tienda (nombre, dirección, abierta, figuras) |
 | DELETE | /api/tiendas/:id | Borra tienda |
-| PUT    | /api/tiendas/:id/figuras | Agrega o elimina figuras de la tienda, evitando duplicados |
